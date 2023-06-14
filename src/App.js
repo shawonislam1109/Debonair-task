@@ -1,12 +1,13 @@
-import { Button } from '@mui/material';
-import AddReactionIcon from '@mui/icons-material/AddReaction';
 import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './Layout/Route';
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="contained">Contained</Button>
-      <AddReactionIcon/>
+    <div>
+     <RouterProvider router={router}>
+
+     </RouterProvider>
     </div>
   );
 }
