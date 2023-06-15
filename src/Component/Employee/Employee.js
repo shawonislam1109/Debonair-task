@@ -80,7 +80,7 @@ const Employee = () => {
     }}
       
       
-      rows = {Employeelist.readEmployeeData}
+      rows = {employee && employee.map(data => data)}
       columns={columns}
       initialState={{
         pagination: {
