@@ -3,33 +3,29 @@ import React from "react";
 import AddIcon from "@mui/icons-material/Add";
 import {Link} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
-import {DataGrid} from "@mui/x-data-grid";
+import MaterialTable from "material-table";
 
 const Employee = () => {
 
   const columns  = [
-    {field: "empID", headerName: "empID", width: 70},
-    {field: "firstName", headerName: "First name", width: 130},
-    {field: "lastName", headerName: "Last name", width: 130},
+    {field: "empID", title: 'EmpID'},
+    {field: "firstName", title: "Fast-Name"},
+    {field: "lastName", title: "Last-Name"},
     {
       field: "employeeType",
-      headerName: "EmployeeType",
-      width: 150,
+      title : 'EmployeeType'
     },
     {
       field: "districeID",
-      headerName: "DistricID",
-      width: 150,
+     title: 'DistrictID'
     },
     {
       field: "district",
-      headerName: "District",
-      width: 150,
+     title: 'District'
     },
     {
       field: "disvision",
-      headerName: "Division",
-      width: 150,
+     title : 'Division'
     },
   ];
 
@@ -71,25 +67,21 @@ const Employee = () => {
 
    
       <div style={{height: 400, width: "100%"}}>
-      {employee && <DataGrid
-    sx={{
-      width:'90%',
-      mx: 'auto',
-      mt: '50px'
+     <MaterialTable
+      style={{width:'95%', marginLeft:'auto', marginRight:'auto'}}
+     title='Employee-List'
+     data={employee}
+     columns={columns}
+     options={
+      {
+       exportButton: true, 
+      }
       
-    }}
-      
-      
-      rows = {employee && employee.map(data => data)}
-      columns={columns}
-      initialState={{
-        pagination: {
-          paginationModel: { page: 0, pageSize: 5 },
-        },
-      }}
-      pageSizeOptions={[5, 10]}
-      checkboxSelection
-    />}
+     }
+     
+     />
+
+    
       </div>
     </div>
   );
